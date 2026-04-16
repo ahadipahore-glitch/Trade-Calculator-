@@ -284,7 +284,7 @@ export default function App() {
               >
                 <div className="flex items-center gap-2 text-zinc-500 text-[10px] md:text-xs mb-1">
                   <Wallet className="w-3 h-3" />
-                  <span>Position</span>
+                  <span>Position Size</span>
                 </div>
                 <div className="text-sm md:text-lg font-bold text-zinc-100">
                   {formatCurrency(results.position)} <span className="text-[9px] md:text-[10px] text-zinc-500">USDT</span>
@@ -299,7 +299,7 @@ export default function App() {
               >
                 <div className="flex items-center gap-2 text-zinc-500 text-[10px] md:text-xs mb-1">
                   <ShieldAlert className="w-3 h-3 text-rose-500" />
-                  <span>Liq. Move</span>
+                  <span>Liquidation Move</span>
                 </div>
                 <div className="text-sm md:text-lg font-bold text-rose-500">
                   {results.liquidationMove.toFixed(2)}%
@@ -339,7 +339,7 @@ export default function App() {
                   <span className="text-zinc-300 font-mono">{formatCurrency(results.compoundedGross)}</span>
                 </div>
                 <div className="flex justify-between items-center text-xs md:text-sm p-2.5 md:p-3 bg-zinc-800/30 rounded-lg border border-zinc-700/30">
-                  <span className="text-zinc-400">Fees</span>
+                  <span className="text-zinc-400">Total Fees</span>
                   <span className="text-rose-400 font-mono">{formatCurrency(results.totalFeeDeducted)}</span>
                 </div>
               </div>
