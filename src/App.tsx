@@ -362,7 +362,7 @@ export default function App() {
                   <span className="text-xs md:text-sm font-medium text-emerald-500/50 uppercase">USDT</span>
                 </div>
                 <div className="mt-2 flex items-center gap-2 text-[9px] md:text-[10px] text-emerald-500/40 uppercase font-bold tracking-tighter">
-                  <span>Init: {results.m}</span>
+                  <span>Initial: {margin}</span>
                   <ArrowRight className="w-2 h-2" />
                   <span>ROI: {results.m > 0 ? ((results.compoundedNet / results.m - 1) * 100).toLocaleString() : '0'}%</span>
                 </div>
