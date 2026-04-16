@@ -122,16 +122,16 @@ export default function App() {
   const noSpinClass = "[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none";
 
   return (
-    <div className="h-screen md:min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-emerald-500/30 flex items-center justify-center p-2 md:p-4 overflow-hidden">
+    <div className="h-screen h-[100dvh] md:min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-emerald-500/30 flex items-center justify-center p-1 md:p-4 overflow-hidden">
       <div className="w-full max-w-4xl h-full md:h-auto bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
         
-        {/* Left Panel: Inputs (Top half on mobile, scrollable) */}
-        <div className="w-full md:w-2/5 h-[45%] md:h-auto p-4 md:p-6 border-b md:border-b-0 md:border-r border-zinc-800 space-y-3 md:space-y-5 overflow-y-auto">
+        {/* Left Panel: Inputs (Top zone on mobile, scrollable) */}
+        <div className="w-full md:w-2/5 h-[42%] md:h-auto p-3 md:p-6 border-b md:border-b-0 md:border-r border-zinc-800 space-y-2 md:space-y-5 overflow-y-auto">
           <div className="flex items-center gap-2 mb-1 md:mb-2">
-            <div className="p-1.5 md:p-2 bg-emerald-500/10 rounded-lg">
-              <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-emerald-500" />
+            <div className="p-1 md:p-2 bg-emerald-500/10 rounded-lg">
+              <TrendingUp className="w-3.5 md:w-5 h-3.5 md:h-5 text-emerald-500" />
             </div>
-            <h1 className="text-lg md:text-xl font-bold tracking-tight">Trade Config</h1>
+            <h1 className="text-base md:text-xl font-bold tracking-tight">Trade Config</h1>
           </div>
 
           <div className="space-y-3 md:space-y-4">
@@ -272,22 +272,22 @@ export default function App() {
           </div>
         </div>
 
-        {/* Right Panel: Outputs (Bottom half on mobile, fixed) */}
-        <div className="w-full md:w-3/5 h-[55%] md:h-auto p-3 md:p-6 bg-zinc-900/50 flex flex-col justify-between overflow-hidden md:overflow-y-auto">
-          <div className="space-y-2 md:space-y-6">
+        {/* Right Panel: Outputs (Bottom zone on mobile, fixed) */}
+        <div className="w-full md:w-3/5 h-[58%] md:h-auto p-2.5 md:p-6 bg-zinc-900/50 flex flex-col justify-between overflow-hidden md:overflow-y-auto">
+          <div className="space-y-1.5 md:space-y-6">
             {/* Top Row: Quick Stats */}
-            <div className="grid grid-cols-2 gap-2 md:gap-4">
+            <div className="grid grid-cols-2 gap-1.5 md:gap-4">
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-2 md:p-4 bg-zinc-800/50 rounded-xl border border-zinc-700/50"
+                className="p-1.5 md:p-4 bg-zinc-800/50 rounded-lg md:rounded-xl border border-zinc-700/50"
               >
-                <div className="flex items-center gap-1.5 md:gap-2 text-zinc-500 text-[9px] md:text-xs mb-0.5 md:mb-1">
+                <div className="flex items-center gap-1 md:gap-2 text-zinc-500 text-[8px] md:text-xs mb-0.5">
                   <Wallet className="w-2 md:w-3 h-2 md:h-3" />
-                  <span>Position Size</span>
+                  <span>Position</span>
                 </div>
-                <div className="text-sm md:text-lg font-bold text-zinc-100 leading-tight">
-                  {formatCurrency(results.position)} <span className="text-[8px] md:text-[10px] text-zinc-500">USDT</span>
+                <div className="text-xs md:text-lg font-bold text-zinc-100 leading-none">
+                  {formatCurrency(results.position)} <span className="text-[7px] md:text-[10px] text-zinc-500">USDT</span>
                 </div>
               </motion.div>
 
@@ -295,13 +295,13 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="p-2 md:p-4 bg-zinc-800/50 rounded-xl border border-zinc-700/50"
+                className="p-1.5 md:p-4 bg-zinc-800/50 rounded-lg md:rounded-xl border border-zinc-700/50"
               >
-                <div className="flex items-center gap-1.5 md:gap-2 text-zinc-500 text-[9px] md:text-xs mb-0.5 md:mb-1">
+                <div className="flex items-center gap-1 md:gap-2 text-zinc-500 text-[8px] md:text-xs mb-0.5">
                   <ShieldAlert className="w-2 md:w-3 h-2 md:h-3 text-rose-500" />
-                  <span>Liquidation</span>
+                  <span>Liq. Move</span>
                 </div>
-                <div className="text-sm md:text-lg font-bold text-rose-500 leading-tight">
+                <div className="text-xs md:text-lg font-bold text-rose-500 leading-none">
                   {results.liquidationMove.toFixed(2)}%
                 </div>
               </motion.div>
@@ -309,36 +309,36 @@ export default function App() {
 
             {/* Middle Section: Single Trade Breakdown */}
             <div className="space-y-1 md:space-y-3">
-              <h3 className="text-[9px] md:text-xs font-bold text-zinc-600 uppercase tracking-widest">Single Trade Result</h3>
-              <div className="space-y-1 md:space-y-2">
-                <div className="flex justify-between items-center text-[10px] md:text-sm">
+              <h3 className="text-[8px] md:text-xs font-bold text-zinc-600 uppercase tracking-widest">Single Trade</h3>
+              <div className="space-y-0.5 md:space-y-2">
+                <div className="flex justify-between items-center text-[9px] md:text-sm">
                   <span className="text-zinc-400">Gross Profit</span>
                   <span className="text-emerald-500 font-medium">+{formatCurrency(results.profitAmount)}</span>
                 </div>
-                <div className="flex justify-between items-center text-[10px] md:text-sm">
+                <div className="flex justify-between items-center text-[9px] md:text-sm">
                   <span className="text-zinc-400">Fees ({(results.totalFeeRate * 100).toFixed(2)}%)</span>
                   <span className="text-rose-400">-{formatCurrency(results.totalFeeSingle)}</span>
                 </div>
-                <div className="flex justify-between items-center pt-1 md:pt-2 border-t border-zinc-800 font-bold text-[10px] md:text-sm">
-                  <span className="text-zinc-300">New Capital</span>
-                  <span className="text-zinc-100">{formatCurrency(results.newCapitalAfterFee)} USDT</span>
+                <div className="flex justify-between items-center pt-0.5 md:pt-2 border-t border-zinc-800 font-bold text-[9px] md:text-sm">
+                  <span className="text-zinc-300">Net Capital</span>
+                  <span className="text-zinc-100">{formatCurrency(results.newCapitalAfterFee)}</span>
                 </div>
               </div>
             </div>
 
             {/* Bottom Section: Compounding */}
-            <div className="space-y-1.5 md:space-y-4 pt-1 md:pt-4">
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <Repeat className="w-3 md:w-4 h-3 md:h-4 text-emerald-500" />
-                <h3 className="text-[9px] md:text-xs font-bold text-emerald-500 uppercase tracking-widest">Compounding ({iterations}x)</h3>
+            <div className="space-y-1 md:space-y-4 pt-0.5 md:pt-4">
+              <div className="flex items-center gap-1 md:gap-2">
+                <Repeat className="w-2.5 md:w-4 h-2.5 md:h-4 text-emerald-500" />
+                <h3 className="text-[8px] md:text-xs font-bold text-emerald-500 uppercase tracking-widest">Compounding ({iterations}x)</h3>
               </div>
               
-              <div className="grid grid-cols-1 gap-1.5 md:gap-3">
-                <div className="flex justify-between items-center text-[10px] md:text-sm p-1.5 md:p-3 bg-zinc-800/30 rounded-lg border border-zinc-700/30">
+              <div className="grid grid-cols-1 gap-1 md:gap-3">
+                <div className="flex justify-between items-center text-[9px] md:text-sm p-1 md:p-3 bg-zinc-800/30 rounded-lg border border-zinc-700/30">
                   <span className="text-zinc-400">Gross</span>
                   <span className="text-zinc-300 font-mono">{formatCurrency(results.compoundedGross)}</span>
                 </div>
-                <div className="flex justify-between items-center text-[10px] md:text-sm p-1.5 md:p-3 bg-zinc-800/30 rounded-lg border border-zinc-700/30">
+                <div className="flex justify-between items-center text-[9px] md:text-sm p-1 md:p-3 bg-zinc-800/30 rounded-lg border border-zinc-700/30">
                   <span className="text-zinc-400">Fees</span>
                   <span className="text-rose-400 font-mono">{formatCurrency(results.totalFeeDeducted)}</span>
                 </div>
@@ -351,20 +351,20 @@ export default function App() {
             key={results.compoundedNet}
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="mt-2 md:mt-6 p-3 md:p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-xl md:rounded-2xl relative overflow-hidden group"
+            className="mt-1 md:mt-6 p-2.5 md:p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-lg md:rounded-2xl relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 p-2 md:p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <TrendingUp className="w-12 md:w-24 h-12 md:h-24 text-emerald-500" />
+            <div className="absolute top-0 right-0 p-1 md:p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <TrendingUp className="w-10 md:w-24 h-10 md:h-24 text-emerald-500" />
             </div>
             <div className="relative z-10">
-              <div className="text-[9px] md:text-xs font-bold text-emerald-500/70 uppercase tracking-widest mb-0.5 md:mb-1">Final Capital (Net)</div>
-              <div className="text-xl md:text-4xl font-black text-emerald-500 tracking-tighter flex items-baseline gap-1 md:gap-2">
+              <div className="text-[8px] md:text-xs font-bold text-emerald-500/70 uppercase tracking-widest mb-0.5">Final Net Capital</div>
+              <div className="text-lg md:text-4xl font-black text-emerald-500 tracking-tighter flex items-baseline gap-1 md:gap-2">
                 {formatCurrency(results.compoundedNet)}
-                <span className="text-[10px] md:text-sm font-medium text-emerald-500/50 uppercase">USDT</span>
+                <span className="text-[8px] md:text-sm font-medium text-emerald-500/50 uppercase">USDT</span>
               </div>
-              <div className="mt-1 md:mt-2 flex items-center gap-1.5 md:gap-2 text-[8px] md:text-[10px] text-emerald-500/40 uppercase font-bold tracking-tighter">
+              <div className="mt-0.5 md:mt-2 flex items-center gap-1 md:gap-2 text-[7px] md:text-[10px] text-emerald-500/40 uppercase font-bold tracking-tighter">
                 <span>Init: {results.m}</span>
-                <ArrowRight className="w-2 h-2" />
+                <ArrowRight className="w-1.5 h-1.5" />
                 <span>ROI: {results.m > 0 ? ((results.compoundedNet / results.m - 1) * 100).toLocaleString() : '0'}%</span>
               </div>
             </div>
@@ -373,8 +373,8 @@ export default function App() {
       </div>
       
       {/* Footer / Credits */}
-      <div className="fixed bottom-2 md:bottom-4 text-[10px] text-zinc-600 font-mono uppercase tracking-[0.2em]">
-        Future Trade Calculator // v1.8
+      <div className="fixed bottom-1 md:bottom-4 text-[9px] md:text-[10px] text-zinc-600 font-mono uppercase tracking-[0.2em]">
+        Future Trade Calculator // v1.9
       </div>
     </div>
   );
